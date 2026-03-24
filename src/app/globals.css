@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 :root {
+  --brand-primary: #1D9E75;
+  --brand-light: #E8F5F0;
+  --brand-dark: #085041;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -8,19 +11,53 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand: #1D9E75;
+  --color-brand-light: #E8F5F0;
+  --color-brand-dark: #085041;
+  --color-brand-50: #F0FAF6;
+  --color-role-best: #1D9E75;
+  --color-role-contrast: #6366f1;
+  --color-role-discovery: #f59e0b;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.8;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 2px;
+}
+
+/* タップハイライト無効化 */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* スマホ: ボタンの最小タップ領域確保 */
+button, a {
+  min-height: 44px;
+}
+
+/* セーフエリア対応 */
+.sticky.bottom-0 {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* スマホ横スクロール防止 */
+html, body {
+  overflow-x: hidden;
+}
+
+/* selectのモバイル最適化 */
+select {
+  font-size: 16px;
 }
